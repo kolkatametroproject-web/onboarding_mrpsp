@@ -1,0 +1,51 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "stats": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "candidates": {
+      ".indexOn": [
+        "examDate",
+        "examShift",
+        "status",
+        "college"
+      ],
+      "$candidateId": {
+        ".read": "auth != null",
+        ".write": "!data.exists() && newData.exists()",
+        ".validate": "newData.hasChildren(['enrollmentNumber','name','email','phone','dob','college'])"
+      }
+    },
+    "results": {
+      "$candidateId": {
+        ".read": "auth != null",
+        ".write": "auth != null"
+      }
+    },
+    "examEvents": {
+      "$candidateId": {
+        ".read": "auth != null",
+        "$eventId": {
+          ".write": "auth != null"
+        }
+      }
+    },
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+    "settings": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "questions": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    }
+  }
+}
