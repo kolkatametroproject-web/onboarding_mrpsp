@@ -2,95 +2,2305 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MRPSP | CBT Examination Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MRPSP | Computer Based Examination</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:#eef2f7;color:#172033}
-:root{--navy:#102a43;--blue:#1261a0;--cyan:#00a8cc;--green:#16845b;--red:#d64545;--gold:#f0a202;--line:#dbe3ec}
-header{height:72px;background:linear-gradient(100deg,#0b2036,#123e63);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 28px;box-shadow:0 3px 15px #001b3322}
-.brand{display:flex;align-items:center;gap:13px}.logo{width:43px;height:43px;border:2px solid #fff;border-radius:8px;display:grid;place-items:center;font-weight:900;letter-spacing:-2px}.brand b{display:block;font-size:20px}.brand small{opacity:.75;letter-spacing:1.5px}
-main{max-width:1180px;margin:auto;padding:34px 22px}.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:25px;align-items:stretch}
-.panel{background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 8px 28px #16324b10}.heroText{padding:48px}.eyebrow{color:var(--blue);font-weight:800;font-size:12px;letter-spacing:2px}.hero h1{font-size:43px;line-height:1.08;margin:12px 0}.hero p{font-size:17px;color:#627083;line-height:1.6}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
-button,.btn{border:0;border-radius:8px;padding:13px 18px;font-weight:750;cursor:pointer;text-decoration:none;display:inline-block}.primary{background:var(--blue);color:white}.secondary{background:#e8f3fb;color:var(--blue)}.dark{background:var(--navy);color:#fff}.danger{background:#fff0f0;color:var(--red)}
-.stats{padding:27px}.stat{padding:17px 0;border-bottom:1px solid var(--line)}.stat:last-child{border:0}.stat strong{display:block;font-size:29px;color:var(--navy)}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:22px}.card{padding:23px}.card .num{font-size:12px;font-weight:900;color:var(--cyan)}.card h3{margin:9px 0}.card p{color:#6c7888;font-size:14px;line-height:1.55}
-footer{text-align:center;color:#718096;font-size:13px;padding:20px}
-.modal{position:fixed;inset:0;background:#071b2dcc;display:none;align-items:center;justify-content:center;padding:20px;z-index:10}.modal.show{display:flex}.box{background:#fff;width:min(520px,100%);border-radius:16px;padding:28px}.box h2{margin-top:0}.field{margin:14px 0}.field label{display:block;font-size:13px;font-weight:750;margin-bottom:7px}.field input{width:100%;padding:12px;border:1px solid #cfd8e3;border-radius:8px;font-size:15px}.close{float:right;background:#eef2f7;color:#334}
-#exam{display:none;position:fixed;inset:0;background:#f4f6f8;z-index:20}.examTop{height:66px;background:#102a43;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 22px}.timer{font-size:24px;font-weight:900;background:#071b2c;padding:9px 16px;border-radius:8px}.examBody{display:grid;grid-template-columns:1fr 290px;height:calc(100vh - 66px)}.question{padding:28px;overflow:auto}.qbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:25px;max-width:850px;margin:auto}.qmeta{color:#66768a;font-size:13px}.qtext{font-size:21px;font-weight:750;line-height:1.45;margin:18px 0 25px}.option{display:flex;gap:12px;padding:15px;border:1px solid #d7e0e9;border-radius:8px;margin:10px 0;cursor:pointer}.option:hover{background:#f5f9fc}.option input{accent-color:var(--blue)}.examSide{background:#fff;border-left:1px solid var(--line);padding:20px}.candidateMini{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:18px}.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.pbtn{padding:9px 0;background:#eef2f7;color:#26384d;border:1px solid #d3dce6;border-radius:6px}.pbtn.answered{background:#16845b;color:#fff}.pbtn.current{outline:3px solid #7cc6ed}.legend{font-size:12px;color:#66768a;margin-top:18px;line-height:1.9}.examNav{display:flex;gap:8px;margin-top:25px}.examNav button{flex:1}
-@media(max-width:800px){.hero{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.hero h1{font-size:33px}.examBody{grid-template-columns:1fr}.examSide{display:none}}
+/* =========================================================
+   MRPSP CBT PORTAL
+   Professional Railway / Metro inspired interface
+   ========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --navy:#0b2439;
+    --navy2:#123b59;
+    --blue:#1769aa;
+    --blue2:#2188d1;
+    --sky:#eaf5fc;
+    --green:#198754;
+    --green-light:#e7f6ee;
+    --orange:#f59e0b;
+    --red:#dc3545;
+    --red-light:#fdebed;
+    --purple:#7357c7;
+    --text:#202b36;
+    --muted:#687789;
+    --border:#d9e1e8;
+    --bg:#f3f6f9;
+    --white:#ffffff;
+    --shadow:0 5px 20px rgba(15,42,65,.08);
+}
+
+body{
+    font-family:
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* =========================================================
+   LOGIN / HOME
+   ========================================================= */
+
+.home{
+    min-height:100vh;
+    background:
+        linear-gradient(135deg,#071c2d,#0d3652);
+}
+
+.home-header{
+    height:78px;
+    padding:0 55px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    color:white;
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.brand-logo{
+    width:48px;
+    height:48px;
+    border:2px solid white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+    font-size:15px;
+}
+
+.brand-title{
+    font-size:22px;
+    font-weight:800;
+}
+
+.brand-subtitle{
+    font-size:11px;
+    opacity:.75;
+    letter-spacing:2px;
+    margin-top:2px;
+}
+
+.header-right{
+    font-size:13px;
+    opacity:.85;
+}
+
+.hero{
+    min-height:calc(100vh - 78px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:50px 30px;
+}
+
+.hero-container{
+    width:min(1150px,100%);
+    display:grid;
+    grid-template-columns:1.25fr .75fr;
+    gap:35px;
+}
+
+.hero-left{
+    color:white;
+    padding:30px 0;
+}
+
+.gov-label{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    border:1px solid rgba(255,255,255,.25);
+    padding:8px 13px;
+    border-radius:5px;
+    font-size:11px;
+    letter-spacing:1.5px;
+    background:rgba(255,255,255,.06);
+}
+
+.dot{
+    width:7px;
+    height:7px;
+    background:#35d07f;
+    border-radius:50%;
+}
+
+.hero-left h1{
+    font-size:50px;
+    line-height:1.08;
+    margin:25px 0 18px;
+    max-width:700px;
+}
+
+.hero-left p{
+    font-size:17px;
+    line-height:1.7;
+    color:#c6d5e1;
+    max-width:650px;
+}
+
+.hero-buttons{
+    margin-top:32px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.hero-btn{
+    padding:14px 22px;
+    border-radius:6px;
+    border:none;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.hero-btn.primary{
+    background:#1b83ce;
+    color:white;
+}
+
+.hero-btn.white{
+    background:white;
+    color:var(--navy);
+}
+
+.hero-btn.outline{
+    border:1px solid rgba(255,255,255,.3);
+    background:transparent;
+    color:white;
+}
+
+.info-card{
+    background:white;
+    border-radius:12px;
+    padding:28px;
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
+}
+
+.info-card-header{
+    border-bottom:1px solid var(--border);
+    padding-bottom:18px;
+    margin-bottom:20px;
+}
+
+.info-card-header h2{
+    font-size:20px;
+    color:var(--navy);
+}
+
+.info-card-header p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+.info-row{
+    display:flex;
+    gap:14px;
+    padding:15px 0;
+    border-bottom:1px solid #edf1f4;
+}
+
+.info-icon{
+    width:38px;
+    height:38px;
+    border-radius:7px;
+    background:var(--sky);
+    color:var(--blue);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:800;
+}
+
+.info-row strong{
+    display:block;
+    font-size:14px;
+}
+
+.info-row span{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(3,18,31,.75);
+    z-index:1000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:min(460px,100%);
+    background:white;
+    border-radius:10px;
+    padding:30px;
+    box-shadow:0 25px 80px rgba(0,0,0,.35);
+}
+
+.modal-box h2{
+    color:var(--navy);
+    margin-bottom:6px;
+}
+
+.modal-box .subtitle{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:24px;
+}
+
+.close{
+    float:right;
+    border:none;
+    background:#f0f3f6;
+    width:30px;
+    height:30px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.form-group{
+    margin-bottom:17px;
+}
+
+.form-group label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:7px;
+}
+
+.form-group input{
+    width:100%;
+    height:44px;
+    padding:0 12px;
+    border:1px solid #ccd6df;
+    border-radius:5px;
+    outline:none;
+    font-size:14px;
+}
+
+.form-group input:focus{
+    border-color:var(--blue2);
+    box-shadow:0 0 0 3px rgba(33,136,209,.1);
+}
+
+.full-btn{
+    width:100%;
+    height:45px;
+    border:none;
+    background:var(--blue);
+    color:white;
+    border-radius:5px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* =========================================================
+   EXAMINATION SCREEN
+   ========================================================= */
+
+#examScreen{
+    display:none;
+    min-height:100vh;
+    background:#edf1f5;
+}
+
+/* TOP BAR */
+
+.exam-header{
+    height:70px;
+    background:var(--navy);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 22px;
+}
+
+.exam-brand{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.exam-logo{
+    width:38px;
+    height:38px;
+    border:2px solid white;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-size:12px;
+    font-weight:900;
+}
+
+.exam-title{
+    font-weight:750;
+    font-size:15px;
+}
+
+.exam-code{
+    font-size:10px;
+    opacity:.65;
+    margin-top:3px;
+}
+
+.exam-status{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.live{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:11px;
+}
+
+.live span{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#28d17c;
+}
+
+.timer{
+    background:#071a2b;
+    border:1px solid rgba(255,255,255,.15);
+    padding:9px 17px;
+    border-radius:5px;
+}
+
+.timer small{
+    display:block;
+    font-size:9px;
+    opacity:.6;
+}
+
+#timer{
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+/* EXAM BODY */
+
+.exam-layout{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 330px;
+    min-height:calc(100vh - 70px);
+}
+
+/* QUESTION AREA */
+
+.question-area{
+    padding:20px;
+}
+
+.question-card{
+    max-width:920px;
+    margin:auto;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:8px;
+    box-shadow:var(--shadow);
+}
+
+.question-header{
+    padding:17px 21px;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.question-number{
+    font-size:14px;
+    font-weight:800;
+}
+
+.question-type{
+    font-size:11px;
+    background:#eef5fb;
+    color:var(--blue);
+    padding:6px 10px;
+    border-radius:4px;
+}
+
+.question-content{
+    padding:27px;
+}
+
+.question-text{
+    font-size:18px;
+    line-height:1.6;
+    font-weight:650;
+    margin-bottom:25px;
+}
+
+.option{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    min-height:55px;
+    border:1px solid #d8e0e7;
+    border-radius:6px;
+    margin:10px 0;
+    padding:10px 15px;
+    cursor:pointer;
+    transition:.15s;
+}
+
+.option:hover{
+    background:#f5f9fc;
+    border-color:#9dc9e7;
+}
+
+.option.selected{
+    background:#eaf5fd;
+    border-color:#2188d1;
+}
+
+.option-letter{
+    width:32px;
+    height:32px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    border:1px solid #ccd6df;
+    font-size:12px;
+    font-weight:800;
+    flex-shrink:0;
+}
+
+.option.selected .option-letter{
+    background:var(--blue);
+    color:white;
+    border-color:var(--blue);
+}
+
+.option input{
+    display:none;
+}
+
+.option-text{
+    font-size:14px;
+}
+
+/* QUESTION FOOTER */
+
+.question-footer{
+    border-top:1px solid var(--border);
+    padding:15px 21px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.exam-button{
+    border:none;
+    padding:11px 17px;
+    border-radius:5px;
+    font-size:12px;
+    font-weight:750;
+    cursor:pointer;
+}
+
+.btn-prev{
+    background:#edf1f5;
+    color:#334455;
+}
+
+.btn-review{
+    background:#fff4df;
+    color:#a26100;
+}
+
+.btn-next{
+    background:var(--blue);
+    color:white;
+}
+
+.btn-submit{
+    background:var(--red);
+    color:white;
+}
+
+/* =========================================================
+   RIGHT PANEL
+   ========================================================= */
+
+.exam-sidebar{
+    background:white;
+    border-left:1px solid var(--border);
+    padding:18px;
+}
+
+.candidate{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--border);
+}
+
+.avatar{
+    width:48px;
+    height:48px;
+    background:#dcecf8;
+    color:var(--blue);
+    border-radius:6px;
+    display:grid;
+    place-items:center;
+    font-size:18px;
+    font-weight:800;
+}
+
+.candidate strong{
+    font-size:14px;
+}
+
+.candidate small{
+    display:block;
+    color:var(--muted);
+    margin-top:3px;
+    font-size:11px;
+}
+
+.palette-title{
+    margin:20px 0 12px;
+    font-size:13px;
+    font-weight:800;
+}
+
+.palette{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:7px;
+}
+
+.palette button{
+    height:37px;
+    border-radius:5px;
+    border:1px solid #d4dce4;
+    background:#f1f4f7;
+    cursor:pointer;
+    font-size:12px;
+    font-weight:750;
+    color:#445363;
+}
+
+.palette button.current{
+    outline:3px solid #9ed0ed;
+    outline-offset:1px;
+}
+
+.palette button.answered{
+    background:var(--green);
+    border-color:var(--green);
+    color:white;
+}
+
+.palette button.review{
+    background:var(--orange);
+    border-color:var(--orange);
+    color:white;
+}
+
+.palette button.answered-review{
+    background:var(--purple);
+    border-color:var(--purple);
+    color:white;
+}
+
+.legend{
+    margin-top:22px;
+    border-top:1px solid var(--border);
+    padding-top:18px;
+}
+
+.legend-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:11px;
+    color:#687789;
+    margin:9px 0;
+}
+
+.legend-box{
+    width:19px;
+    height:19px;
+    border-radius:4px;
+    background:#f1f4f7;
+    border:1px solid #d4dce4;
+}
+
+.legend-box.green{background:var(--green)}
+.legend-box.orange{background:var(--orange)}
+.legend-box.purple{background:var(--purple)}
+
+.security{
+    margin-top:20px;
+    background:#f5f8fa;
+    border:1px solid var(--border);
+    padding:13px;
+    border-radius:6px;
+    font-size:10px;
+    color:#687789;
+    line-height:1.6;
+}
+
+/* =========================================================
+   INSTRUCTIONS
+   ========================================================= */
+
+.instructions{
+    position:fixed;
+    inset:0;
+    background:#071b2c;
+    z-index:2000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.instructions.active{
+    display:flex;
+}
+
+.instruction-box{
+    width:min(760px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:white;
+    border-radius:10px;
+    padding:32px;
+}
+
+.instruction-box h1{
+    color:var(--navy);
+    margin-bottom:6px;
+}
+
+.instruction-box .intro{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.instruction-item{
+    display:flex;
+    gap:13px;
+    margin:15px 0;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.check{
+    width:23px;
+    height:23px;
+    flex-shrink:0;
+    background:#e8f5ee;
+    color:var(--green);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.start-area{
+    border-top:1px solid var(--border);
+    margin-top:25px;
+    padding-top:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.start-area label{
+    font-size:12px;
+    color:#536272;
+}
+
+.start-btn{
+    border:none;
+    background:var(--blue);
+    color:white;
+    padding:13px 22px;
+    border-radius:5px;
+    font-weight:750;
+    cursor:pointer;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media(max-width:900px){
+
+    .hero-container{
+        grid-template-columns:1fr;
+    }
+
+    .hero-left h1{
+        font-size:38px;
+    }
+
+    .exam-layout{
+        grid-template-columns:1fr;
+    }
+
+    .exam-sidebar{
+        display:none;
+    }
+}
+
+@media(max-width:600px){
+
+    .home-header{
+        padding:0 18px;
+    }
+
+    .header-right{
+        display:none;
+    }
+
+    .hero{
+        padding:25px 18px;
+    }
+
+    .hero-left h1{
+        font-size:32px;
+    }
+
+    .question-area{
+        padding:8px;
+    }
+
+    .question-content{
+        padding:18px;
+    }
+
+    .question-footer{
+        flex-wrap:wrap;
+    }
+
+    .exam-header{
+        padding:0 10px;
+    }
+
+    .exam-title{
+        font-size:12px;
+    }
+
+    .live{
+        display:none;
+    }
+}
 </style>
 </head>
+
 <body>
-<header><div class="brand"><div class="logo">MR</div><div><b>MRPSP</b><small>ONBOARDING EXAMINATION</small></div></div><div>Secure CBT Portal</div></header>
 
-<main>
+<!-- =========================================================
+     HOME PAGE
+     ========================================================= -->
+
+<div class="home" id="home">
+
+<header class="home-header">
+
+    <div class="brand">
+
+        <div class="brand-logo">
+            MR
+        </div>
+
+        <div>
+            <div class="brand-title">MRPSP</div>
+            <div class="brand-subtitle">
+                ONBOARDING EXAMINATION
+            </div>
+        </div>
+
+    </div>
+
+    <div class="header-right">
+        Secure Computer Based Examination Portal
+    </div>
+
+</header>
+
+
 <section class="hero">
-<div class="panel heroText">
-<div class="eyebrow">METRO RAIL PROJECT SUPPORT PROGRAM</div>
-<h1>Online Recruitment &amp; Onboarding Examination</h1>
-<p>A professional computer-based examination interface for MRPSP candidates. Registration, candidate access and CBT simulation are available from one portal.</p>
-<div class="actions">
-<button class="primary" onclick="openModal('login')">Candidate Login</button>
-<button class="secondary" onclick="openModal('register')">New Registration</button>
-<button class="dark" onclick="openModal('admin')">Admin Portal</button>
-</div>
-</div>
-<div class="panel stats">
-<div class="stat"><strong>01</strong>Candidate Registration</div>
-<div class="stat"><strong>02</strong>Admit Card &amp; Allocation</div>
-<div class="stat"><strong>03</strong>Computer Based Test</div>
-<div class="stat"><strong>04</strong>Result &amp; Shortlisting</div>
-</div>
-</section>
-<section class="cards">
-<div class="panel card"><div class="num">01</div><h3>Registration</h3><p>Register using your enrollment and candidate information.</p></div>
-<div class="panel card"><div class="num">02</div><h3>Admit Card</h3><p>Access examination date, shift and centre information.</p></div>
-<div class="panel card"><div class="num">03</div><h3>CBT Examination</h3><p>Use question navigation, palette, timer and review controls.</p></div>
-<div class="panel card"><div class="num">04</div><h3>Result</h3><p>View score and eligibility after evaluation.</p></div>
-</section>
-</main>
-<footer>© MRPSP Project • Examination Portal • Prototype</footer>
 
-<div id="modal" class="modal"><div class="box"><button class="close" onclick="closeModal()">Close</button><div id="modalContent"></div></div></div>
+<div class="hero-container">
 
-<div id="exam">
-<div class="examTop"><b>MRPSP — COMPUTER BASED EXAMINATION</b><div class="timer" id="timer">30:00</div></div>
-<div class="examBody">
-<div class="question"><div class="qbox"><div class="qmeta" id="qmeta"></div><div class="qtext" id="qtext"></div><div id="options"></div><div class="examNav"><button class="secondary" onclick="prevQ()">Previous</button><button class="primary" onclick="nextQ()">Save &amp; Next</button><button class="danger" onclick="finishExam()">Submit Exam</button></div></div></div>
-<aside class="examSide"><div class="candidateMini"><b id="candidateName">Candidate</b><br><small>MRPSP CBT Examination</small></div><b>Question Palette</b><div class="palette" id="palette"></div><div class="legend">Grey = Not visited<br>Green = Answered<br>Blue outline = Current question</div></aside>
+<div class="hero-left">
+
+    <div class="gov-label">
+        <span class="dot"></span>
+        METRO RAIL PROJECT SUPPORT PROGRAM
+    </div>
+
+    <h1>
+        Computer Based Recruitment &amp;
+        Onboarding Examination
+    </h1>
+
+    <p>
+        Secure digital examination platform for candidate
+        registration, examination scheduling, computer based
+        testing and result processing.
+    </p>
+
+    <div class="hero-buttons">
+
+        <button
+            class="hero-btn primary"
+            onclick="openLogin()">
+            Candidate Login
+        </button>
+
+        <button
+            class="hero-btn white"
+            onclick="openRegister()">
+            New Registration
+        </button>
+
+        <button
+            class="hero-btn outline"
+            onclick="openAdmin()">
+            Admin Portal
+        </button>
+
+    </div>
+
 </div>
+
+
+<div class="info-card">
+
+    <div class="info-card-header">
+        <h2>Examination Process</h2>
+        <p>MRPSP candidate journey</p>
+    </div>
+
+
+    <div class="info-row">
+
+        <div class="info-icon">01</div>
+
+        <div>
+            <strong>Candidate Registration</strong>
+            <span>Submit candidate information</span>
+        </div>
+
+    </div>
+
+
+    <div class="info-row">
+
+        <div class="info-icon">02</div>
+
+        <div>
+            <strong>Examination Allocation</strong>
+            <span>Date, shift and centre allocation</span>
+        </div>
+
+    </div>
+
+
+    <div class="info-row">
+
+        <div class="info-icon">03</div>
+
+        <div>
+            <strong>Computer Based Test</strong>
+            <span>Secure online examination</span>
+        </div>
+
+    </div>
+
+
+    <div class="info-row">
+
+        <div class="info-icon">04</div>
+
+        <div>
+            <strong>Result &amp; Shortlisting</strong>
+            <span>Score and selection status</span>
+        </div>
+
+    </div>
+
 </div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- =========================================================
+     LOGIN MODAL
+     ========================================================= -->
+
+<div class="modal" id="loginModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeAll()">×</button>
+
+<h2>Candidate Login</h2>
+
+<div class="subtitle">
+Enter your registered enrollment number to continue.
+</div>
+
+<div class="form-group">
+
+<label>Enrollment Number</label>
+
+<input
+    type="text"
+    id="enrollment"
+    placeholder="Enter enrollment number">
+
+</div>
+
+<button
+    class="full-btn"
+    onclick="loginCandidate()">
+
+    Continue
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     REGISTRATION MODAL
+     ========================================================= -->
+
+<div class="modal" id="registerModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeAll()">×</button>
+
+<h2>Candidate Registration</h2>
+
+<div class="subtitle">
+Register for the MRPSP onboarding examination.
+</div>
+
+<div class="form-group">
+
+<label>Enrollment Number</label>
+
+<input
+    id="regEnrollment"
+    placeholder="College enrollment number">
+
+</div>
+
+<div class="form-group">
+
+<label>Candidate Name</label>
+
+<input
+    id="regName"
+    placeholder="Full name">
+
+</div>
+
+<div class="form-group">
+
+<label>Email Address</label>
+
+<input
+    id="regEmail"
+    type="email"
+    placeholder="Email address">
+
+</div>
+
+<div class="form-group">
+
+<label>Mobile Number</label>
+
+<input
+    id="regPhone"
+    placeholder="10 digit mobile number">
+
+</div>
+
+<button
+    class="full-btn"
+    onclick="registerCandidate()">
+
+    Register Candidate
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     ADMIN MODAL
+     ========================================================= -->
+
+<div class="modal" id="adminModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeAll()">×</button>
+
+<h2>Administrator Login</h2>
+
+<div class="subtitle">
+Authorized MRPSP examination administration only.
+</div>
+
+<div class="form-group">
+
+<label>Administrator Email</label>
+
+<input
+    id="adminEmail"
+    type="email"
+    placeholder="admin@example.com">
+
+</div>
+
+<div class="form-group">
+
+<label>Password</label>
+
+<input
+    id="adminPassword"
+    type="password"
+    placeholder="Password">
+
+</div>
+
+<button
+    class="full-btn"
+    onclick="adminLogin()">
+
+    Administrator Login
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     EXAM INSTRUCTIONS
+     ========================================================= -->
+
+<div class="instructions" id="instructionScreen">
+
+<div class="instruction-box">
+
+<h1>Examination Instructions</h1>
+
+<p class="intro">
+Please read the following instructions carefully before
+starting the computer based examination.
+</p>
+
+
+<div class="instruction-item">
+
+<div class="check">✓</div>
+
+<div>
+The examination duration is <b>30 minutes</b>.
+The timer will continue to run once the examination begins.
+</div>
+
+</div>
+
+
+<div class="instruction-item">
+
+<div class="check">✓</div>
+
+<div>
+Each question has four options. Select the option you
+consider correct.
+</div>
+
+</div>
+
+
+<div class="instruction-item">
+
+<div class="check">✓</div>
+
+<div>
+Use <b>Save &amp; Next</b> to record your answer and move
+to the next question.
+</div>
+
+</div>
+
+
+<div class="instruction-item">
+
+<div class="check">✓</div>
+
+<div>
+Questions can be marked for review and revisited using
+the question palette.
+</div>
+
+</div>
+
+
+<div class="instruction-item">
+
+<div class="check">✓</div>
+
+<div>
+Do not close the examination window or intentionally
+leave the examination screen during the test.
+</div>
+
+</div>
+
+
+<div class="instruction-item">
+
+<div class="check">✓</div>
+
+<div>
+The examination will be submitted automatically when
+the timer reaches zero.
+</div>
+
+</div>
+
+
+<div class="start-area">
+
+<label>
+<input type="checkbox" id="agree">
+&nbsp; I have read and understood the instructions.
+</label>
+
+<button
+    class="start-btn"
+    onclick="startExam()">
+
+    Start Examination →
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     EXAM SCREEN
+     ========================================================= -->
+
+<div id="examScreen">
+
+<header class="exam-header">
+
+<div class="exam-brand">
+
+<div class="exam-logo">
+MR
+</div>
+
+<div>
+
+<div class="exam-title">
+MRPSP COMPUTER BASED EXAMINATION
+</div>
+
+<div class="exam-code">
+ONBOARDING / CBT / 2026
+</div>
+
+</div>
+
+</div>
+
+
+<div class="exam-status">
+
+<div class="live">
+<span></span>
+EXAM IN PROGRESS
+</div>
+
+<div class="timer">
+
+<small>TIME REMAINING</small>
+
+<div id="timer">
+30:00
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+
+<div class="exam-layout">
+
+
+<!-- QUESTION -->
+
+<section class="question-area">
+
+<div class="question-card">
+
+
+<div class="question-header">
+
+<div
+    class="question-number"
+    id="questionNumber">
+
+    Question 1 of 10
+
+</div>
+
+<div class="question-type">
+MCQ
+</div>
+
+</div>
+
+
+<div class="question-content">
+
+<div
+    class="question-text"
+    id="questionText">
+
+</div>
+
+
+<div id="optionsContainer"></div>
+
+</div>
+
+
+<div class="question-footer">
+
+<div>
+
+<button
+    class="exam-button btn-prev"
+    onclick="previousQuestion()">
+
+    ← Previous
+
+</button>
+
+<button
+    class="exam-button btn-review"
+    onclick="markReview()">
+
+    ⚑ Mark for Review
+
+</button>
+
+</div>
+
+
+<div>
+
+<button
+    class="exam-button btn-next"
+    onclick="nextQuestion()">
+
+    Save &amp; Next →
+
+</button>
+
+<button
+    class="exam-button btn-submit"
+    onclick="submitExam()">
+
+    Submit
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SIDEBAR -->
+
+<aside class="exam-sidebar">
+
+
+<div class="candidate">
+
+<div class="avatar">
+SP
+</div>
+
+<div>
+
+<strong id="candidateDisplay">
+Candidate
+</strong>
+
+<small>
+MRPSP Onboarding Examination
+</small>
+
+</div>
+
+</div>
+
+
+<div class="palette-title">
+QUESTION PALETTE
+</div>
+
+
+<div
+    class="palette"
+    id="palette">
+
+</div>
+
+
+<div class="legend">
+
+<div class="legend-row">
+
+<div class="legend-box green"></div>
+
+Answered
+
+</div>
+
+
+<div class="legend-row">
+
+<div class="legend-box orange"></div>
+
+Marked for Review
+
+</div>
+
+
+<div class="legend-row">
+
+<div class="legend-box purple"></div>
+
+Answered &amp; Review
+
+</div>
+
+
+<div class="legend-row">
+
+<div class="legend-box"></div>
+
+Not Answered
+
+</div>
+
+</div>
+
+
+<div class="security">
+
+<b>SECURITY NOTICE</b>
+
+<br>
+
+Your examination session is monitored for
+navigation and session integrity. Do not attempt
+to leave the examination window.
+
+</div>
+
+</aside>
+
+</div>
+
+</div>
+
 
 <script>
-const questions=[
-["Which layer of the OSI model is responsible for end-to-end process communication?","Transport","Network","Data Link","Session"],
-["Which protocol is connection-oriented?","TCP","UDP","IP","ICMP"],
-["What is the full form of CBTC in metro railway systems?","Communication Based Train Control","Central Block Traffic Control","Computer Based Track Circuit","Continuous Brake Train Control"],
-["Which device forwards packets between different networks?","Router","Hub","Repeater","Switch"],
-["Which data structure follows FIFO?","Queue","Stack","Tree","Graph"],
-["Which language is primarily used to structure a web page?","HTML","CSS","SQL","Python"],
-["What does CPU stand for?","Central Processing Unit","Computer Program Unit","Central Process Utility","Control Processing User"],
-["Which protocol is commonly used for secure web communication?","HTTPS","FTP","HTTP","Telnet"],
-["In a database, a primary key uniquely identifies a:","Record","Table server","Query language","Column type"],
-["Which algorithm is commonly associated with congestion control using a bucket analogy?","Leaky Bucket","Binary Search","Round Robin","Dijkstra"]
-];
-let q=0,answers={},seconds=1800,timerInt;
-function openModal(type){
- let title=type==="register"?"Candidate Registration":type==="admin"?"Admin Portal":"Candidate Login";
- let body= type==="register"?`<h2>${title}</h2><div class="field"><label>Enrollment Number</label><input id="enroll"></div><div class="field"><label>Full Name</label><input id="name"></div><div class="field"><label>Email</label><input id="email" type="email"></div><div class="field"><label>Mobile Number</label><input id="phone"></div><button class="primary" onclick="register()">Register Candidate</button>`:
- type==="admin"?`<h2>${title}</h2><div class="field"><label>Admin Email</label><input id="aemail" type="email"></div><div class="field"><label>Password</label><input id="apass" type="password"></div><button class="dark" onclick="adminLogin()">Login</button>`:
- `<h2>${title}</h2><div class="field"><label>Enrollment Number</label><input id="lenroll"></div><button class="primary" onclick="candidateLogin()">Continue to Examination</button>`;
- document.getElementById("modalContent").innerHTML=body;document.getElementById("modal").classList.add("show")
+
+/* =========================================================
+   QUESTIONS
+   ========================================================= */
+
+const questions = [
+
+{
+    question:
+    "Which layer of the OSI model is responsible for end-to-end process communication?",
+
+    options:[
+        "Transport Layer",
+        "Network Layer",
+        "Data Link Layer",
+        "Session Layer"
+    ],
+
+    answer:0
+},
+
+{
+    question:
+    "Which of the following protocols is connection-oriented?",
+
+    options:[
+        "UDP",
+        "TCP",
+        "IP",
+        "ICMP"
+    ],
+
+    answer:1
+},
+
+{
+    question:
+    "What is the full form of CBTC in modern metro railway systems?",
+
+    options:[
+        "Communication Based Train Control",
+        "Central Block Traffic Control",
+        "Computer Based Track Circuit",
+        "Continuous Brake Train Control"
+    ],
+
+    answer:0
+},
+
+{
+    question:
+    "Which networking device forwards packets between different networks?",
+
+    options:[
+        "Hub",
+        "Switch",
+        "Router",
+        "Repeater"
+    ],
+
+    answer:2
+},
+
+{
+    question:
+    "Which data structure follows the FIFO principle?",
+
+    options:[
+        "Stack",
+        "Queue",
+        "Tree",
+        "Graph"
+    ],
+
+    answer:1
+},
+
+{
+    question:
+    "Which language is primarily used to structure content on a web page?",
+
+    options:[
+        "HTML",
+        "CSS",
+        "SQL",
+        "Python"
+    ],
+
+    answer:0
+},
+
+{
+    question:
+    "What does CPU stand for?",
+
+    options:[
+        "Central Processing Unit",
+        "Computer Program Unit",
+        "Central Process Utility",
+        "Control Processing User"
+    ],
+
+    answer:0
+},
+
+{
+    question:
+    "Which protocol is commonly used for secure web communication?",
+
+    options:[
+        "FTP",
+        "HTTP",
+        "HTTPS",
+        "Telnet"
+    ],
+
+    answer:2
+},
+
+{
+    question:
+    "In a relational database, a primary key uniquely identifies a:",
+
+    options:[
+        "Record",
+        "Database server",
+        "Query",
+        "Data type"
+    ],
+
+    answer:0
+},
+
+{
+    question:
+    "Which algorithm uses the concept of a bucket to control traffic flow?",
+
+    options:[
+        "Dijkstra Algorithm",
+        "Leaky Bucket Algorithm",
+        "Binary Search",
+        "Round Robin"
+    ],
+
+    answer:1
 }
-function closeModal(){document.getElementById("modal").classList.remove("show")}
-function register(){let n=document.getElementById("name").value.trim(),e=document.getElementById("enroll").value.trim();if(!n||!e){alert("Please enter enrollment number and name.");return}localStorage.setItem("mrpspCandidate",JSON.stringify({name:n,enrollment:e,email:document.getElementById("email").value,phone:document.getElementById("phone").value}));alert("Registration saved on this browser. Connect Firebase for production storage.");closeModal()}
-function candidateLogin(){let e=document.getElementById("lenroll").value.trim();let c=JSON.parse(localStorage.getItem("mrpspCandidate")||"null");if(!e){alert("Enter enrollment number.");return}if(c&&c.enrollment===e)startExam(c.name);else if(e)startExam("Candidate "+e)}
-function adminLogin(){alert("Demo admin panel. For production, connect Firebase Authentication and role-based rules.");closeModal()}
-function startExam(name){closeModal();document.getElementById("candidateName").textContent=name;document.getElementById("exam").style.display="block";renderPalette();renderQ();clearInterval(timerInt);timerInt=setInterval(()=>{seconds--;document.getElementById("timer").textContent=Math.floor(seconds/60).toString().padStart(2,"0")+":"+String(seconds%60).padStart(2,"0");if(seconds<=0)finishExam()},1000);document.documentElement.requestFullscreen?.().catch(()=>{})}
-function renderQ(){let x=questions[q];document.getElementById("qmeta").textContent=`Question ${q+1} of ${questions.length}`;document.getElementById("qtext").textContent=x[0];document.getElementById("options").innerHTML=x.slice(1).map((o,i)=>`<label class="option"><input type="radio" name="answer" value="${i}" ${answers[q]===i?"checked":""} onchange="answers[q]=${i};renderPalette()"><span>${String.fromCharCode(65+i)}. ${o}</span></label>`).join("")}
-function renderPalette(){document.getElementById("palette").innerHTML=questions.map((_,i)=>`<button class="pbtn ${answers[i]!==undefined?"answered":""} ${i===q?"current":""}" onclick="q=${i};renderQ();renderPalette()">${i+1}</button>`).join("")}
-function nextQ(){if(q<questions.length-1){q++;renderQ();renderPalette()}else finishExam()}
-function prevQ(){if(q>0){q--;renderQ();renderPalette()}}
-function finishExam(){clearInterval(timerInt);let score=questions.reduce((s,x,i)=>s+(answers[i]===["Transport","TCP","Communication Based Train Control","Router","Queue","HTML","Central Processing Unit","HTTPS","Record","Leaky Bucket"].indexOf(x[1])?1:0),0);document.getElementById("exam").style.display="none";alert("Examination submitted. Score: "+score+"/"+questions.length);location.reload()}
+
+];
+
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
+let currentQuestion = 0;
+
+let selectedAnswers = {};
+
+let reviewQuestions = {};
+
+let candidateName = "Candidate";
+
+let timeRemaining = 30 * 60;
+
+let timerInterval;
+
+
+/* =========================================================
+   MODALS
+   ========================================================= */
+
+function openLogin(){
+
+    closeAll();
+
+    document
+        .getElementById("loginModal")
+        .classList.add("active");
+
+}
+
+
+function openRegister(){
+
+    closeAll();
+
+    document
+        .getElementById("registerModal")
+        .classList.add("active");
+
+}
+
+
+function openAdmin(){
+
+    closeAll();
+
+    document
+        .getElementById("adminModal")
+        .classList.add("active");
+
+}
+
+
+function closeAll(){
+
+    document
+        .querySelectorAll(".modal")
+        .forEach(x=>x.classList.remove("active"));
+
+}
+
+
+/* =========================================================
+   REGISTRATION
+   ========================================================= */
+
+function registerCandidate(){
+
+    const enrollment =
+        document.getElementById("regEnrollment").value.trim();
+
+    const name =
+        document.getElementById("regName").value.trim();
+
+    const email =
+        document.getElementById("regEmail").value.trim();
+
+    const phone =
+        document.getElementById("regPhone").value.trim();
+
+
+    if(!enrollment || !name || !email || !phone){
+
+        alert("Please complete all registration fields.");
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "mrpsp_candidate",
+        JSON.stringify({
+            enrollment,
+            name,
+            email,
+            phone
+        })
+    );
+
+
+    alert(
+        "Registration completed successfully.\n\n" +
+        "Enrollment Number: " + enrollment
+    );
+
+
+    closeAll();
+
+}
+
+
+/* =========================================================
+   CANDIDATE LOGIN
+   ========================================================= */
+
+function loginCandidate(){
+
+    const enrollment =
+        document
+        .getElementById("enrollment")
+        .value
+        .trim();
+
+
+    if(!enrollment){
+
+        alert("Please enter your enrollment number.");
+
+        return;
+
+    }
+
+
+    const saved =
+        JSON.parse(
+            localStorage.getItem("mrpsp_candidate") || "null"
+        );
+
+
+    if(saved && saved.enrollment === enrollment){
+
+        candidateName = saved.name;
+
+    }else{
+
+        candidateName =
+            "Candidate " + enrollment;
+
+    }
+
+
+    closeAll();
+
+    document
+        .getElementById("instructionScreen")
+        .classList.add("active");
+
+}
+
+
+/* =========================================================
+   ADMIN
+   ========================================================= */
+
+function adminLogin(){
+
+    const email =
+        document.getElementById("adminEmail").value.trim();
+
+    const password =
+        document.getElementById("adminPassword").value;
+
+
+    if(!email || !password){
+
+        alert("Enter administrator credentials.");
+
+        return;
+
+    }
+
+
+    alert(
+        "Demo administrator login.\n\n" +
+        "Connect Firebase Authentication for the live system."
+    );
+
+    closeAll();
+
+}
+
+
+/* =========================================================
+   START EXAM
+   ========================================================= */
+
+function startExam(){
+
+    if(
+        !document.getElementById("agree").checked
+    ){
+
+        alert(
+            "Please confirm that you have read the instructions."
+        );
+
+        return;
+
+    }
+
+
+    document
+        .getElementById("instructionScreen")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("home")
+        .style.display="none";
+
+
+    document
+        .getElementById("examScreen")
+        .style.display="block";
+
+
+    document
+        .getElementById("candidateDisplay")
+        .textContent=candidateName;
+
+
+    currentQuestion=0;
+
+    selectedAnswers={};
+
+    reviewQuestions={};
+
+    timeRemaining=1800;
+
+
+    renderPalette();
+
+    renderQuestion();
+
+    startTimer();
+
+
+    if(document.documentElement.requestFullscreen){
+
+        document.documentElement
+            .requestFullscreen()
+            .catch(()=>{});
+
+    }
+
+}
+
+
+/* =========================================================
+   TIMER
+   ========================================================= */
+
+function startTimer(){
+
+    clearInterval(timerInterval);
+
+
+    updateTimer();
+
+
+    timerInterval=setInterval(()=>{
+
+        timeRemaining--;
+
+        updateTimer();
+
+
+        if(timeRemaining<=0){
+
+            clearInterval(timerInterval);
+
+            submitExam(true);
+
+        }
+
+    },1000);
+
+}
+
+
+function updateTimer(){
+
+    const minutes =
+        Math.floor(timeRemaining/60)
+        .toString()
+        .padStart(2,"0");
+
+    const seconds =
+        (timeRemaining%60)
+        .toString()
+        .padStart(2,"0");
+
+
+    document
+        .getElementById("timer")
+        .textContent =
+        minutes + ":" + seconds;
+
+}
+
+
+/* =========================================================
+   QUESTION RENDER
+   ========================================================= */
+
+function renderQuestion(){
+
+    const item =
+        questions[currentQuestion];
+
+
+    document
+        .getElementById("questionNumber")
+        .textContent =
+        "Question " +
+        (currentQuestion+1) +
+        " of " +
+        questions.length;
+
+
+    document
+        .getElementById("questionText")
+        .textContent =
+        item.question;
+
+
+    const container =
+        document.getElementById(
+            "optionsContainer"
+        );
+
+
+    container.innerHTML="";
+
+
+    item.options.forEach((option,index)=>{
+
+        const label =
+            document.createElement("label");
+
+
+        label.className="option";
+
+
+        if(
+            selectedAnswers[currentQuestion] === index
+        ){
+
+            label.classList.add("selected");
+
+        }
+
+
+        label.innerHTML=`
+
+            <input
+                type="radio"
+                name="question"
+                value="${index}">
+
+            <span class="option-letter">
+                ${String.fromCharCode(65+index)}
+            </span>
+
+            <span class="option-text">
+                ${option}
+            </span>
+
+        `;
+
+
+        label.onclick=()=>{
+
+            selectedAnswers[currentQuestion]=index;
+
+            renderQuestion();
+
+            renderPalette();
+
+        };
+
+
+        container.appendChild(label);
+
+    });
+
+
+    renderPalette();
+
+}
+
+
+/* =========================================================
+   PALETTE
+   ========================================================= */
+
+function renderPalette(){
+
+    const palette =
+        document.getElementById("palette");
+
+
+    palette.innerHTML="";
+
+
+    questions.forEach((_,index)=>{
+
+        const button =
+            document.createElement("button");
+
+
+        button.textContent=index+1;
+
+
+        if(
+            selectedAnswers[index] !== undefined &&
+            reviewQuestions[index]
+        ){
+
+            button.classList.add(
+                "answered-review"
+            );
+
+        }
+
+        else if(
+            reviewQuestions[index]
+        ){
+
+            button.classList.add("review");
+
+        }
+
+        else if(
+            selectedAnswers[index] !== undefined
+        ){
+
+            button.classList.add("answered");
+
+        }
+
+
+        if(index===currentQuestion){
+
+            button.classList.add("current");
+
+        }
+
+
+        button.onclick=()=>{
+
+            currentQuestion=index;
+
+            renderQuestion();
+
+        };
+
+
+        palette.appendChild(button);
+
+    });
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+function nextQuestion(){
+
+    if(
+        currentQuestion <
+        questions.length-1
+    ){
+
+        currentQuestion++;
+
+        renderQuestion();
+
+    }else{
+
+        alert(
+            "This is the last question. " +
+            "You may submit the examination."
+        );
+
+    }
+
+}
+
+
+function previousQuestion(){
+
+    if(currentQuestion>0){
+
+        currentQuestion--;
+
+        renderQuestion();
+
+    }
+
+}
+
+
+function markReview(){
+
+    reviewQuestions[currentQuestion]=
+        !reviewQuestions[currentQuestion];
+
+
+    renderPalette();
+
+}
+
+
+/* =========================================================
+   SUBMIT
+   ========================================================= */
+
+function submitExam(auto=false){
+
+    if(!auto){
+
+        const confirmSubmit =
+            confirm(
+                "Are you sure you want to submit the examination?"
+            );
+
+
+        if(!confirmSubmit){
+
+            return;
+
+        }
+
+    }
+
+
+    clearInterval(timerInterval);
+
+
+    let score=0;
+
+
+    questions.forEach((question,index)=>{
+
+        if(
+            selectedAnswers[index] ===
+            question.answer
+        ){
+
+            score++;
+
+        }
+
+    });
+
+
+    const percentage =
+        Math.round(
+            score/questions.length*100
+        );
+
+
+    document
+        .getElementById("examScreen")
+        .style.display="none";
+
+
+    if(document.exitFullscreen){
+
+        document.exitFullscreen()
+            .catch(()=>{});
+
+    }
+
+
+    alert(
+        "EXAMINATION SUBMITTED\n\n" +
+
+        "Candidate: " + candidateName +
+        "\n\n" +
+
+        "Score: " +
+        score +
+        " / " +
+        questions.length +
+
+        "\n\nPercentage: " +
+        percentage +
+        "%"
+    );
+
+
+    location.reload();
+
+}
+
+
+/* =========================================================
+   TAB SWITCH WARNING
+   ========================================================= */
+
+let warnings=0;
+
+
+document.addEventListener(
+    "visibilitychange",
+    ()=>{
+
+        const exam =
+            document.getElementById("examScreen");
+
+
+        if(
+            exam.style.display==="block" &&
+            document.hidden
+        ){
+
+            warnings++;
+
+
+            if(warnings>=3){
+
+                alert(
+                    "Maximum examination security warnings reached. " +
+                    "The examination will be submitted."
+                );
+
+                submitExam(true);
+
+            }else{
+
+                alert(
+                    "Warning " +
+                    warnings +
+                    "/3\n\n" +
+
+                    "Do not leave the examination window."
+                );
+
+            }
+
+        }
+
+    }
+);
+
 </script>
+
 </body>
 </html>
