@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MRPSP | CBT Examination Portal</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:#eef2f7;color:#172033}
+:root{--navy:#102a43;--blue:#1261a0;--cyan:#00a8cc;--green:#16845b;--red:#d64545;--gold:#f0a202;--line:#dbe3ec}
+header{height:72px;background:linear-gradient(100deg,#0b2036,#123e63);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 28px;box-shadow:0 3px 15px #001b3322}
+.brand{display:flex;align-items:center;gap:13px}.logo{width:43px;height:43px;border:2px solid #fff;border-radius:8px;display:grid;place-items:center;font-weight:900;letter-spacing:-2px}.brand b{display:block;font-size:20px}.brand small{opacity:.75;letter-spacing:1.5px}
+main{max-width:1180px;margin:auto;padding:34px 22px}.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:25px;align-items:stretch}
+.panel{background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 8px 28px #16324b10}.heroText{padding:48px}.eyebrow{color:var(--blue);font-weight:800;font-size:12px;letter-spacing:2px}.hero h1{font-size:43px;line-height:1.08;margin:12px 0}.hero p{font-size:17px;color:#627083;line-height:1.6}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+button,.btn{border:0;border-radius:8px;padding:13px 18px;font-weight:750;cursor:pointer;text-decoration:none;display:inline-block}.primary{background:var(--blue);color:white}.secondary{background:#e8f3fb;color:var(--blue)}.dark{background:var(--navy);color:#fff}.danger{background:#fff0f0;color:var(--red)}
+.stats{padding:27px}.stat{padding:17px 0;border-bottom:1px solid var(--line)}.stat:last-child{border:0}.stat strong{display:block;font-size:29px;color:var(--navy)}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:22px}.card{padding:23px}.card .num{font-size:12px;font-weight:900;color:var(--cyan)}.card h3{margin:9px 0}.card p{color:#6c7888;font-size:14px;line-height:1.55}
+footer{text-align:center;color:#718096;font-size:13px;padding:20px}
+.modal{position:fixed;inset:0;background:#071b2dcc;display:none;align-items:center;justify-content:center;padding:20px;z-index:10}.modal.show{display:flex}.box{background:#fff;width:min(520px,100%);border-radius:16px;padding:28px}.box h2{margin-top:0}.field{margin:14px 0}.field label{display:block;font-size:13px;font-weight:750;margin-bottom:7px}.field input{width:100%;padding:12px;border:1px solid #cfd8e3;border-radius:8px;font-size:15px}.close{float:right;background:#eef2f7;color:#334}
+#exam{display:none;position:fixed;inset:0;background:#f4f6f8;z-index:20}.examTop{height:66px;background:#102a43;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 22px}.timer{font-size:24px;font-weight:900;background:#071b2c;padding:9px 16px;border-radius:8px}.examBody{display:grid;grid-template-columns:1fr 290px;height:calc(100vh - 66px)}.question{padding:28px;overflow:auto}.qbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:25px;max-width:850px;margin:auto}.qmeta{color:#66768a;font-size:13px}.qtext{font-size:21px;font-weight:750;line-height:1.45;margin:18px 0 25px}.option{display:flex;gap:12px;padding:15px;border:1px solid #d7e0e9;border-radius:8px;margin:10px 0;cursor:pointer}.option:hover{background:#f5f9fc}.option input{accent-color:var(--blue)}.examSide{background:#fff;border-left:1px solid var(--line);padding:20px}.candidateMini{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:18px}.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.pbtn{padding:9px 0;background:#eef2f7;color:#26384d;border:1px solid #d3dce6;border-radius:6px}.pbtn.answered{background:#16845b;color:#fff}.pbtn.current{outline:3px solid #7cc6ed}.legend{font-size:12px;color:#66768a;margin-top:18px;line-height:1.9}.examNav{display:flex;gap:8px;margin-top:25px}.examNav button{flex:1}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.hero h1{font-size:33px}.examBody{grid-template-columns:1fr}.examSide{display:none}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">MR</div><div><b>MRPSP</b><small>ONBOARDING EXAMINATION</small></div></div><div>Secure CBT Portal</div></header>
 
+<main>
+<section class="hero">
+<div class="panel heroText">
+<div class="eyebrow">METRO RAIL PROJECT SUPPORT PROGRAM</div>
+<h1>Online Recruitment &amp; Onboarding Examination</h1>
+<p>A professional computer-based examination interface for MRPSP candidates. Registration, candidate access and CBT simulation are available from one portal.</p>
+<div class="actions">
+<button class="primary" onclick="openModal('login')">Candidate Login</button>
+<button class="secondary" onclick="openModal('register')">New Registration</button>
+<button class="dark" onclick="openModal('admin')">Admin Portal</button>
+</div>
+</div>
+<div class="panel stats">
+<div class="stat"><strong>01</strong>Candidate Registration</div>
+<div class="stat"><strong>02</strong>Admit Card &amp; Allocation</div>
+<div class="stat"><strong>03</strong>Computer Based Test</div>
+<div class="stat"><strong>04</strong>Result &amp; Shortlisting</div>
+</div>
+</section>
+<section class="cards">
+<div class="panel card"><div class="num">01</div><h3>Registration</h3><p>Register using your enrollment and candidate information.</p></div>
+<div class="panel card"><div class="num">02</div><h3>Admit Card</h3><p>Access examination date, shift and centre information.</p></div>
+<div class="panel card"><div class="num">03</div><h3>CBT Examination</h3><p>Use question navigation, palette, timer and review controls.</p></div>
+<div class="panel card"><div class="num">04</div><h3>Result</h3><p>View score and eligibility after evaluation.</p></div>
+</section>
+</main>
+<footer>© MRPSP Project • Examination Portal • Prototype</footer>
+
+<div id="modal" class="modal"><div class="box"><button class="close" onclick="closeModal()">Close</button><div id="modalContent"></div></div></div>
+
+<div id="exam">
+<div class="examTop"><b>MRPSP — COMPUTER BASED EXAMINATION</b><div class="timer" id="timer">30:00</div></div>
+<div class="examBody">
+<div class="question"><div class="qbox"><div class="qmeta" id="qmeta"></div><div class="qtext" id="qtext"></div><div id="options"></div><div class="examNav"><button class="secondary" onclick="prevQ()">Previous</button><button class="primary" onclick="nextQ()">Save &amp; Next</button><button class="danger" onclick="finishExam()">Submit Exam</button></div></div></div>
+<aside class="examSide"><div class="candidateMini"><b id="candidateName">Candidate</b><br><small>MRPSP CBT Examination</small></div><b>Question Palette</b><div class="palette" id="palette"></div><div class="legend">Grey = Not visited<br>Green = Answered<br>Blue outline = Current question</div></aside>
+</div>
+</div>
+
+<script>
+const questions=[
+["Which layer of the OSI model is responsible for end-to-end process communication?","Transport","Network","Data Link","Session"],
+["Which protocol is connection-oriented?","TCP","UDP","IP","ICMP"],
+["What is the full form of CBTC in metro railway systems?","Communication Based Train Control","Central Block Traffic Control","Computer Based Track Circuit","Continuous Brake Train Control"],
+["Which device forwards packets between different networks?","Router","Hub","Repeater","Switch"],
+["Which data structure follows FIFO?","Queue","Stack","Tree","Graph"],
+["Which language is primarily used to structure a web page?","HTML","CSS","SQL","Python"],
+["What does CPU stand for?","Central Processing Unit","Computer Program Unit","Central Process Utility","Control Processing User"],
+["Which protocol is commonly used for secure web communication?","HTTPS","FTP","HTTP","Telnet"],
+["In a database, a primary key uniquely identifies a:","Record","Table server","Query language","Column type"],
+["Which algorithm is commonly associated with congestion control using a bucket analogy?","Leaky Bucket","Binary Search","Round Robin","Dijkstra"]
+];
+let q=0,answers={},seconds=1800,timerInt;
+function openModal(type){
+ let title=type==="register"?"Candidate Registration":type==="admin"?"Admin Portal":"Candidate Login";
+ let body= type==="register"?`<h2>${title}</h2><div class="field"><label>Enrollment Number</label><input id="enroll"></div><div class="field"><label>Full Name</label><input id="name"></div><div class="field"><label>Email</label><input id="email" type="email"></div><div class="field"><label>Mobile Number</label><input id="phone"></div><button class="primary" onclick="register()">Register Candidate</button>`:
+ type==="admin"?`<h2>${title}</h2><div class="field"><label>Admin Email</label><input id="aemail" type="email"></div><div class="field"><label>Password</label><input id="apass" type="password"></div><button class="dark" onclick="adminLogin()">Login</button>`:
+ `<h2>${title}</h2><div class="field"><label>Enrollment Number</label><input id="lenroll"></div><button class="primary" onclick="candidateLogin()">Continue to Examination</button>`;
+ document.getElementById("modalContent").innerHTML=body;document.getElementById("modal").classList.add("show")
+}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+function register(){let n=document.getElementById("name").value.trim(),e=document.getElementById("enroll").value.trim();if(!n||!e){alert("Please enter enrollment number and name.");return}localStorage.setItem("mrpspCandidate",JSON.stringify({name:n,enrollment:e,email:document.getElementById("email").value,phone:document.getElementById("phone").value}));alert("Registration saved on this browser. Connect Firebase for production storage.");closeModal()}
+function candidateLogin(){let e=document.getElementById("lenroll").value.trim();let c=JSON.parse(localStorage.getItem("mrpspCandidate")||"null");if(!e){alert("Enter enrollment number.");return}if(c&&c.enrollment===e)startExam(c.name);else if(e)startExam("Candidate "+e)}
+function adminLogin(){alert("Demo admin panel. For production, connect Firebase Authentication and role-based rules.");closeModal()}
+function startExam(name){closeModal();document.getElementById("candidateName").textContent=name;document.getElementById("exam").style.display="block";renderPalette();renderQ();clearInterval(timerInt);timerInt=setInterval(()=>{seconds--;document.getElementById("timer").textContent=Math.floor(seconds/60).toString().padStart(2,"0")+":"+String(seconds%60).padStart(2,"0");if(seconds<=0)finishExam()},1000);document.documentElement.requestFullscreen?.().catch(()=>{})}
+function renderQ(){let x=questions[q];document.getElementById("qmeta").textContent=`Question ${q+1} of ${questions.length}`;document.getElementById("qtext").textContent=x[0];document.getElementById("options").innerHTML=x.slice(1).map((o,i)=>`<label class="option"><input type="radio" name="answer" value="${i}" ${answers[q]===i?"checked":""} onchange="answers[q]=${i};renderPalette()"><span>${String.fromCharCode(65+i)}. ${o}</span></label>`).join("")}
+function renderPalette(){document.getElementById("palette").innerHTML=questions.map((_,i)=>`<button class="pbtn ${answers[i]!==undefined?"answered":""} ${i===q?"current":""}" onclick="q=${i};renderQ();renderPalette()">${i+1}</button>`).join("")}
+function nextQ(){if(q<questions.length-1){q++;renderQ();renderPalette()}else finishExam()}
+function prevQ(){if(q>0){q--;renderQ();renderPalette()}}
+function finishExam(){clearInterval(timerInt);let score=questions.reduce((s,x,i)=>s+(answers[i]===["Transport","TCP","Communication Based Train Control","Router","Queue","HTML","Central Processing Unit","HTTPS","Record","Leaky Bucket"].indexOf(x[1])?1:0),0);document.getElementById("exam").style.display="none";alert("Examination submitted. Score: "+score+"/"+questions.length);location.reload()}
+</script>
+</body>
+</html>
